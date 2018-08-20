@@ -1,0 +1,56 @@
+<div class="ui basic segment" style="height: 70vh;">
+    <h3>Community Conversations</h3>
+    <hr>
+    <div id="chat-content" class="ui feed"> </div>
+</div>
+
+<script id="chatTemplate" type="text/x-jsrender">
+    <div class="event">
+      <div class="label">
+         <img src="{{:createdBy.avatar}}">
+      </div>
+      <div class="content">
+        <div class="summary">
+          <a href="#"> {{:createdBy.name}}</a> posted on
+          <div class="date">
+            {{datetime:createdAt}}
+          </div>
+        </div>
+        <div class="extra text">
+             {{:message}}
+        </div>
+      </div>
+    </div>
+</script>
+
+<script type="text/javascript">
+
+    function loadMessages() {
+        // Load existing chat messages
+        io.socket.get('/chatMessage?limit='+Number.MAX_SAFE_INTEGER, function (messages, response) {
+            console.log(messages);
+            renderChatMessages(messages);
+        });
+
+        // Listen for new chat messages
+        io.socket.on('chatmessage', function (body) {
+            // console.log('Jump in '+body.data);
+            renderChatMessages(body.data);
+        });
+    }
+
+    function renderChatMessages(data) {
+        const chatContent = $('#chat-content');
+        $.views.converters("datetime", function(val) {
+            // Convert data-value or expression to upper case
+            return new moment(val).format('DD-MM-YYYY HH:mm:ss');
+        });
+        const template = $.templates('#chatTemplate');
+        let htmlOutput = template.render(data);
+        chatContent.append(htmlOutput);
+        // automatically scroll downwards
+        const scrollHeight = chatContent.prop("scrollHeight");
+        chatContent.animate({ scrollTop: scrollHeight }, "slow");
+    }
+
+</script>

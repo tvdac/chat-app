@@ -1,0 +1,22 @@
+{
+  "name": "chat-app",
+  "description": "A chat app",
+  "main": "app.js",
+  "authors": [
+    "Dac Tran"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic": "semantic-ui#^2.3.3",
+    "jsrender": "^0.9.90"
+  }
+}
