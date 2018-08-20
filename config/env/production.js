@@ -47,6 +47,8 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     default: {
+       adapter: 'sails-mysql',
+        url: 'mysql://w0ssn86l75ss9i7j:lbve8xf4jae0zdy8@muowdopceqgxjn2b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/y8al0acwui1ctfd6',
       // adapter: 'sails-mysql',
       // url: 'mysql://user:password@host:port/database',
       //--------------------------------------------------------------------------
@@ -254,7 +256,9 @@ module.exports = {
     //   'https://example.com',
     //   'https://staging.example.com',
     // ],
-
+    sockets: {
+      onlyAllowOrigins: ["https://nhomlayloi.herokuapp.com/","http://nhomlayloi.herokuapp.com/"]
+    }
 
     /***************************************************************************
     *                                                                          *
