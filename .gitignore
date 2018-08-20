@@ -129,5 +129,4 @@ lib-cov
 *.log
 *.out
 *.pid
-vendor
 
