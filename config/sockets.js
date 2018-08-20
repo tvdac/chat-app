@@ -78,5 +78,5 @@ module.exports.sockets = {
 
   // grant3rdPartyCookie: true,
 
-      onlyAllowOrigins: ["https://nhomlayloi.herokuapp.com/"]
+      onlyAllowOrigins: ["https://nhomlayloi.herokuapp.com"]
 };
