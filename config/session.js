@@ -20,7 +20,8 @@ module.exports.session = {
   ***************************************************************************/
   secret: 'e6663ed454533fdfb13777729af4a7ee',
 
-  trustProxy: true
+  trustProxy: true,
+  secure: true
   /***************************************************************************
   *                                                                          *
   * Customize when built-in session support will be skipped.                 *
